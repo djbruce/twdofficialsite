@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taft Water District</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="main.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="navbar-left">
+        <img src="logo.png" alt="Taft Water District Logo" class="logo" />
+      </div>
+      <button class="navbar-toggle" aria-label="Open Menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="navbar-right" id="navbar-menu">
+        <a href="#pricing">Price</a>
+        <a href="#source">Source</a>
+        <a href="#rate">Rate</a>
+        <a href="#about">About Us</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Welcome to Official Website of TWD</h1>
+          <p>Local Government Owned and Controlled Corporation under Local Water Utilities Administration</p>
+          <a href="#pricing" class="cta-btn">View Pricing</a>
+        </div>
+        <div class="hero-3d">
+          <img src="imgs/123123.jpg" alt="Water Facility" class="hero-image" />
+        </div>
+      </div>
+    </section>
+    <!-- Source Section -->
+    <section class="info-map" id="source" aria-labelledby="source-heading">
+      <div class="info-text">
+        <h2 id="source-heading">Our Water Source</h2>
+        <div class="source-slideshow">
+          <div class="source-caption" id="source-caption">Water Source 1</div>
+          <img src="imgs/water-source/pump1.jpg" alt="Water Source 1" class="source-slide active" />
+          <img src="imgs/water-source/pump2.jpg" alt="Water Source 2" class="source-slide" />
+          <img src="imgs/water-source/pump3.png" alt="Water Source 3" class="source-slide" />
+          <img src="imgs/water-source/pump4.jpg" alt="Water Source 4" class="source-slide" />
+          <div class="source-controls">
+            <button id="source-prev" aria-label="Previous Source">&#8592;</button>
+            <button id="source-next" aria-label="Next Source">&#8594;</button>
+          </div>
+        </div>
+        <p>Taft Water District sources water from the most reliable and sustainable resources, ensuring quality and safety for our community.</p>
+      </div>
+      <div class="info-map-embed">
+        <h3 class="map-heading" style="margin-left:2px;">Location</h3>
+        <div id="osm-map" style="width:100%;height:300px;border-radius:8px;overflow:hidden;"></div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('osm-map').setView([11.8990086, 125.4190938], 15);
+            var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              maxZoom: 19,
+              attribution: '© OpenStreetMap contributors'
+            });
+            var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+              maxZoom: 19,
+              attribution: 'Tiles © Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+            });
+            var baseMaps = {
+              "Map": osm,
+              "Satellite": satellite
+            };
+            satellite.addTo(map);
+            L.control.layers(baseMaps).addTo(map);
+            L.marker([11.8990086, 125.4190938]).addTo(map);
+          });
+        </script>
+      </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Gallery</h2>
+      <div class="gallery-grid">
+        <img src="imgs/gallery/img1.jpg" alt="Water Facility Exterior" loading="lazy" tabindex="0" class="gallery-img" />
+        <img src="imgs/gallery/img2.jpg" alt="Water Treatment Process" loading="lazy" tabindex="0" class="gallery-img" />
+        <img src="imgs/gallery/img3.jpg" alt="Community Outreach Event" loading="lazy" tabindex="0" class="gallery-img" />
+      </div>
+      <div class="gallery-grid" style="margin-top: 20px;">
+        <img src="imgs/gallery/img4.jpg" alt="Water Facility Exterior" loading="lazy" tabindex="0" class="gallery-img" />
+        <img src="imgs/gallery/img5.jpg" alt="Water Treatment Process" loading="lazy" tabindex="0" class="gallery-img" />
+        <img src="imgs/gallery/img6.jpg" alt="Community Outreach Event" loading="lazy" tabindex="0" class="gallery-img" />
+      </div>
+    </section>
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing" aria-labelledby="pricing-heading">
+      <h2 id="pricing-heading">Water Rates (Effective November 2022)</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>Residential/Government</h3>
+          <table>
+            <thead><tr><th>Size</th><th>Min. Charge</th></tr></thead>
+            <tbody>
+              <tr><td>1/2"</td><td>295.00</td></tr>
+              <tr><td>3/4"</td><td>472.00</td></tr>
+              <tr><td>1"</td><td>944.00</td></tr>
+              <tr><td>1 1/2"</td><td>2,360.00</td></tr>
+              <tr><td>2"</td><td>5,900.00</td></tr>
+              <tr><td>3"</td><td>10,620.00</td></tr>
+              <tr><td>4"</td><td>21,240.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pricing-card">
+          <h3>Commercial/Industrial</h3>
+          <table>
+            <thead><tr><th>Size</th><th>Min. Charge</th></tr></thead>
+            <tbody>
+              <tr><td>1/2"</td><td>590.00</td></tr>
+              <tr><td>3/4"</td><td>944.00</td></tr>
+              <tr><td>1"</td><td>1,888.00</td></tr>
+              <tr><td>1 1/2"</td><td>4,720.00</td></tr>
+              <tr><td>2"</td><td>11,800.00</td></tr>
+              <tr><td>3"</td><td>21,240.00</td></tr>
+              <tr><td>4"</td><td>42,480.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pricing-card">
+          <h3>Commercial A</h3>
+          <table>
+            <thead><tr><th>Size</th><th>Min. Charge</th></tr></thead>
+            <tbody>
+              <tr><td>1/2"</td><td>516.25</td></tr>
+              <tr><td>3/4"</td><td>826.00</td></tr>
+              <tr><td>1"</td><td>1,652.00</td></tr>
+              <tr><td>1 1/2"</td><td>4,130.00</td></tr>
+              <tr><td>2"</td><td>10,325.00</td></tr>
+              <tr><td>3"</td><td>18,585.00</td></tr>
+              <tr><td>4"</td><td>37,170.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pricing-card">
+          <h3>Commercial B</h3>
+          <table>
+            <thead><tr><th>Size</th><th>Min. Charge</th></tr></thead>
+            <tbody>
+              <tr><td>1/2"</td><td>442.50</td></tr>
+              <tr><td>3/4"</td><td>708.00</td></tr>
+              <tr><td>1"</td><td>1,416.00</td></tr>
+              <tr><td>2 1/2"</td><td>3,540.00</td></tr>
+              <tr><td>2"</td><td>8,850.00</td></tr>
+              <tr><td>3"</td><td>15,930.00</td></tr>
+              <tr><td>4"</td><td>31,860.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pricing-card">
+          <h3>Commercial C</h3>
+          <table>
+            <thead><tr><th>Size</th><th>Min. Charge</th></tr></thead>
+            <tbody>
+              <tr><td>1/2"</td><td>368.75</td></tr>
+              <tr><td>3/4"</td><td>590.00</td></tr>
+              <tr><td>1"</td><td>1,180.00</td></tr>
+              <tr><td>3 1/2"</td><td>2,950.00</td></tr>
+              <tr><td>2"</td><td>7,375.00</td></tr>
+              <tr><td>3"</td><td>13,275.00</td></tr>
+              <tr><td>4"</td><td>26,550.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pricing-card">
+          <h3>Bulk/Wholesale</h3>
+          <table>
+            <thead><tr><th>Size</th><th>Min. Charge</th></tr></thead>
+            <tbody>
+              <tr><td>1/2"</td><td>885.00</td></tr>
+              <tr><td>3/4"</td><td>1,416.00</td></tr>
+              <tr><td>1"</td><td>2,832.00</td></tr>
+              <tr><td>4 1/2"</td><td>7,080.00</td></tr>
+              <tr><td>2"</td><td>17,700.00</td></tr>
+              <tr><td>3"</td><td>31,860.00</td></tr>
+              <tr><td>4"</td><td>63,720.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- Installation Fee Section -->
+    <section class="installation-fee-section">
+      <div class="installation-fee-content-center">
+        <h2 class="installation-fee-heading">Installation Fee</h2>
+        <div class="pricing-cards">
+          <div class="pricing-card">
+            <h3>Standard Installation</h3>
+            <div class="installation-fee-price">&#8369;2,500 <span class="misc-fee">+ additional miscellaneous fee</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Customer Reviews Section -->
+    <section class="slider" id="rate" aria-labelledby="reviews-heading">
+      <h2 id="reviews-heading">Customer Reviews</h2>
+      <div class="slider-container">
+        <div class="slide active">"Excellent service and water quality!" - Jane D.</div>
+        <div class="slide">"Reliable and affordable." - Mark T.</div>
+        <div class="slide">"Great support team." - Lisa W.</div>
+      </div>
+      <div class="slider-controls">
+        <button id="prev" aria-label="Previous Review">&#8592;</button>
+        <button id="next" aria-label="Next Review">&#8594;</button>
+      </div>
+      <div class="slider-indicators">
+        <span class="indicator active" data-slide="0"></span>
+        <span class="indicator" data-slide="1"></span>
+        <span class="indicator" data-slide="2"></span>
+      </div>
+    </section>
+    <!-- Team Section -->
+    <section class="team" id="about" aria-labelledby="team-heading">
+      <h2 id="team-heading">Employees</h2>
+      <div class="team-slider-wrapper">
+        <button class="team-slider-btn team-prev" aria-label="Previous Team Members">&#8592;</button>
+        <div class="team-slider">
+          <div class="team-slide active">
+            <div class="team-members">
+              <div class="member">
+                <img src="imgs/team/gm.jpg" alt="John Smith, General Manager" />
+                <h3>James Francis Chicano</h3>
+                <p>General Manager</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/petronila.jpg" alt="Emily Johnson, Water Quality Specialist" />
+                <h3>Petronila Macale</h3>
+                <p>Senior Accounting Processor A</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/salvyn.jpg" alt="Michael Lee, Customer Service Lead" />
+                <h3>Salvacion Ayad D</h3>
+                <p>Cashier</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/jona.jpg" alt="Michael Lee, Customer Service Lead" />
+                <h3>Jona Lanang</h3>
+                <p>Engineering Assistant A</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-slide">
+            <div class="team-members">
+              <div class="member">
+                <img src="imgs/team/christy.jpg" alt="Member 5" />
+                <h3>Christy Feril</h3>
+                <p>Utility Customer Service Assitant E/Supply Oficcer - Designate</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/gerald.jpg" alt="Member 6" />
+                <h3>Gerald Gadaingan</h3>
+                <p>Water Resource Facilities Operator C</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/jonar.jpg" alt="Member 7" />
+                <h3>Jonar Suyo</h3>
+                <p>Water Resource Facilities Operator C</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/francis.jpg" alt="Member 8" />
+                <h3>Francis Ada</h3>
+                <p>Water Resource Facilities Operator C</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-slide">
+            <div class="team-members">
+              <div class="member">
+                <img src="imgs/team/martius.jpg" alt="Member 9" />
+                <h3>Martius Afable</h3>
+                <p>Administrative Services Aide</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/edmon.jpg" alt="Member 10" />
+                <h3>Edmon Taniñas</h3>
+                <p>Plumber</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/franc.jpg" alt="Member 11" />
+                <h3>Franc Balicha</h3>
+                <p>Plumber</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/bruce.jpg" alt="Member 12" />
+                <h3>Bruce Ian Padel</h3>
+                <p>IT/Data Encoder</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-slide">
+            <div class="team-members">
+              <div class="member">
+                <img src="imgs/team/judith.jpg" alt="Member 13" />
+                <h3>Judith Achacoso</h3>
+                <p>Utility Worker</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/roberta.jpg" alt="Member 14" />
+                <h3>Roberta Docena</h3>
+                <p>Board of Directory</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/adora.jpg" alt="Member 15" />
+                <h3>Adora Aquiatan</h3>
+                <p>Board of Directory</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/ramon.jpg" alt="Member 16" />
+                <h3>Ramon Cosipag Jr</h3>
+                <p>Board of Directory</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-slide">
+            <div class="team-members">
+              <div class="member">
+                <img src="imgs/team/rosita.jpg" alt="Member 17" />
+                <h3>Rosita Catubao</h3>
+                <p>Board of Directory</p>
+              </div>
+              <div class="member">
+                <img src="imgs/team/marowena.jpg" alt="Member 18" />
+                <h3>Ma. Rowena Obiena</h3>
+                <p>Board of Directory</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="team-slider-btn team-next" aria-label="Next Team Members">&#8594;</button>
+      </div>
+      <div class="team-indicators"></div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Taft Water District. All rights reserved.</p>
+      <form class="contact-form" aria-label="Contact Form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </footer>
+</body>
+</html>
