@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Water Sources - Taft Water District</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    .sources-hero {
+      background: linear-gradient(120deg, #1e3c72 0%, #2a5298 100%);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #00e5ff33;
+      margin: 2rem auto 2.5rem auto;
+      max-width: 900px;
+      padding: 2.5rem 2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .sources-map-container {
+      width: 100%;
+      max-width: 700px;
+      height: 350px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px #00e5ff44;
+      margin: 0 auto;
+      background: #0f2027;
+      position: relative;
+    }
+    .sources-map-title {
+      color: #00e5ff;
+      font-size: 2rem;
+      font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      text-align: center;
+      text-shadow: 0 2px 16px #00e5ff44;
+    }
+    .gallery-section {
+      background: #1b2735;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px #00e5ff22;
+      max-width: 900px;
+      margin: 0 auto 2.5rem auto;
+      padding: 2.5rem 2rem 2rem 2rem;
+    }
+    @media (max-width: 900px) {
+      .sources-hero, .gallery-section { padding: 1.5rem 0.5rem; }
+      .sources-map-container { height: 250px; }
+    }
+    @media (max-width: 600px) {
+      .sources-map-title { font-size: 1.3rem; }
+      .sources-map-container { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="navbar-left">
+        <img src="imgs/logo.png" alt="Taft Water District Logo" class="logo" />
+      </div>
+      <div class="navbar-right">
+        <a href="index.html#pricing">Price</a>
+        <a href="index.html#source">Source</a>
+        <a href="index.html#rate">Rate</a>
+        <a href="index.html#about">About Us</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="sources-hero">
+      <div class="sources-map-title">Location of Water Sources</div>
+      <div class="sources-map-container">
+        <div id="sources-map" style="width:100%;height:100%;"></div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var map = L.map('sources-map', { attributionControl: false }).setView([11.892816, 125.416572], 14);
+          var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 19
+          });
+          satellite.addTo(map);
+          var pinIcon = L.icon({
+            iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-shadow.png',
+            shadowSize: [41, 41]
+          });
+          L.marker([11.894623, 125.416980], {icon: pinIcon}).addTo(map).bindPopup('Water Source 1');
+          L.marker([11.894521, 125.416192], {icon: pinIcon}).addTo(map).bindPopup('Water Source 2');
+          L.marker([11.893589, 125.415181], {icon: pinIcon}).addTo(map).bindPopup('Water Source 3');
+          L.marker([11.886530, 125.417938], {icon: pinIcon}).addTo(map).bindPopup('Water Source 4');
+        });
+      </script>
+    </section>
+    <section class="gallery gallery-section">
+      <h2 style="text-align:center;color:#00e5ff;font-family:'Orbitron',sans-serif;letter-spacing:1px;">Water Source Gallery</h2>
+      <div class="gallery-grid">
+        <img src="imgs/water-source/pump1.jpg" alt="Water Source 1" class="gallery-img" />
+        <img src="imgs/water-source/pump2.jpg" alt="Water Source 2" class="gallery-img" />
+        <img src="imgs/water-source/pump3.png" alt="Water Source 3" class="gallery-img" />
+        <img src="imgs/water-source/pump4.jpg" alt="Water Source 4" class="gallery-img" />
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="index.html#source" class="cta-btn">Back to Main Page</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Taft Water District. All rights reserved.</p>
+      <div class="footer-social" style="flex-direction:column;gap:0.5rem;text-align:center;align-items:center;">
+        <div>
+          <a href="https://www.facebook.com/people/Taft-Water-District/100063633116692/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:28px;height:28px;vertical-align:middle;filter:drop-shadow(0 0 6px #00e5ff);margin-right:8px;" />
+          </a>
+        </div>
+        <div class="footer-contact">
+          <strong>Mobile:</strong> <a href="tel:09665281778" style="color:#00e5ff;text-decoration:none;">0966 528 1778</a>
+        </div>
+        <div class="footer-contact">
+          <strong>Location:</strong> <a href="https://maps.google.com/?q=Real+Street,+Brgy.+03,+National+Road,+Taft,+Eastern+Samar" target="_blank" style="color:#00e5ff;text-decoration:none;">Real Street, Brgy. 03, National Road, Taft, Eastern Samar</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
