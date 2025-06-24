@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Water Sources - Taft Water District</title>
+  <link rel="stylesheet" href="style.css" />
+    <script type="module" src="main.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>  <style>
+    body.source-page { background: #16213e; }
+    .sources-map { width: 100%; height: 200px; }
+
+  </style>
+</head>
+<body class="source-page">
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="index.html">
+        <div class="navbar-left">
+          <img src="imgs/logo.png" alt="Taft Water District Logo" class="logo" />
+        </div>
+      </a>
+      <h1 class="navbar-title">TAFT WATER DISTRICT</h1>
+      <button class="navbar-toggle" aria-label="Open Menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="navbar-right" id="navbar-menu">
+        <a href="index.html#installation">Price</a>
+        <a href="index.html#source">Source</a>
+        <a href="index.html#rate">Rate</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+      </div>
+    </nav>
+  </header>
+<main>
+<section class="gallery-section">
+  <h2>Water Sources</h2>
+  <div class="sources-slider-wrapper">
+    <button class="sources-slider-btn sources-prev" id="sources-prev" aria-label="Previous Source">&#8592;</button>
+    <div class="sources-slider" id="sources-slider">
+      <!-- Water Source 1 -->
+      <div class="sources-slide active">
+        <div class="sources-content-row">
+          <div class="sources-card">
+            <img src="imgs/water-source/pump1.jpg" alt="Water Source 1" />
+            <h3>Water Source 1</h3>
+            <div class="source-details">Type: DugWell<br>
+            Height: 32 feet<br>
+            Status: Operational</div>
+          </div>
+          <div class="sources-map-container">
+            <div id="sources-map-0" class="sources-map"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Water Source 2 -->
+      <div class="sources-slide">
+        <div class="sources-content-row">
+          <div class="sources-card">
+            <img src="imgs/water-source/pump2.jpg" alt="Water Source 2" />
+            <h3>Water Source 2</h3>
+            <div class="source-details">Type: DugWell<br>
+            Height: 20 feet<br>
+            Status: Operational</div>
+          </div>
+          <div class="sources-map-container">
+            <div id="sources-map-1" class="sources-map"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Water Source 3 -->
+      <div class="sources-slide">
+        <div class="sources-content-row">
+          <div class="sources-card">
+            <img src="imgs/water-source/pump3.png" alt="Water Source 3" />
+            <h3>Water Source 3</h3>
+            <div class="source-details">Type:DugWell<br>
+            Height: 28 feet<br>
+            Status: Backup Supply</div>
+          </div>
+          <div class="sources-map-container">
+            <div id="sources-map-2" class="sources-map"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Water Source 4 -->
+      <div class="sources-slide">
+        <div class="sources-content-row">
+          <div class="sources-card">
+            <img src="imgs/water-source/pump4.jpg" alt="Water Source 4" />
+            <h3>Water Source 4</h3>
+            <div class="source-details">Type: DugWell<br>
+            Height: 35 feet<br>
+            Status: Under Testing</div>
+          </div>
+          <div class="sources-map-container">
+            <div id="sources-map-3" class="sources-map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="sources-slider-btn sources-next" id="sources-next" aria-label="Next Source">&#8594;</button>
+  </div>
+  <div class="slider-indicators" id="sources-indicators"></div>
+</section>
+
+</main>
+<footer>
+  <div class="footer-content" id="footer">
+    <p>&copy; 2025 Taft Water District. All rights reserved.</p>
+    <div class="footer-social">
+      <!-- Phone -->
+      <div class="footer-contact">
+        <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/telephone-fill.svg" alt="Phone" />
+        <a href="tel:09665281778">0966 528 1778</a>
+      </div>
+      <!-- Location -->
+      <div class="footer-contact">
+        <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/geo-alt-fill.svg" alt="Location" />
+        <a href="https://www.google.com/maps/place/Taft+Water+District/@11.9003827,125.4168427,902m/data=!3m1!1e3!4m6!3m5!1s0x330910420fe2d7d3:0x101564c113329041!8m2!3d11.898348!4d125.4186447!16s%2Fg%2F11dyx7pfnf?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+          Real Street, Brgy. 03, National Road, Taft, Eastern Samar
+        </a>
+      </div>
+      <!-- Facebook -->
+      <div class="footer-contact">
+        <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/facebook.svg" alt="Facebook" />
+        <a href="https://www.facebook.com/people/Taft-Water-District/100063633116692/" target="_blank" rel="noopener">
+          Facebook.com/people/Taft-Water-District/100063633116692/
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Add just before </body> -->
+<button id="scrollToTopBtn" aria-label="Scroll to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sourceCoords = [
+    [11.894630, 125.416974], // Source 1
+[11.894531, 125.416195], // Source 2
+[11.893579, 125.415186], // Source 3
+[11.886530, 125.417931], // Source 4
+    ];
+
+    // Declare the global map array
+    window.sourceMaps = [];
+
+    sourceCoords.forEach((coords, idx) => {
+      const mapId = `sources-map-${idx}`;
+      const mapDiv = document.getElementById(mapId);
+      if (mapDiv) {
+        const map = L.map(mapId, {
+  center: coords,
+  zoom: 18,
+  minZoom: 14, // ✅ Allows zooming out to level 14
+  maxZoom: 19,
+  scrollWheelZoom: true,  // ✅ Enables zooming with mouse wheel
+  dragging: true,         // ✅ Enables dragging
+  zoomControl: true,      // ✅ Shows +/− zoom buttons
+  attributionControl: false,
+});
+
+
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles &copy; Esri',
+          maxZoom: 19
+        }).addTo(map);
+
+        L.marker(coords).addTo(map);
+        window.sourceMaps[idx] = map; // Store the map instance
+      }
+    });
+
+    // Slider functionality
+    const slides = document.querySelectorAll('.sources-slide');
+    const prevBtn = document.getElementById('sources-prev');
+    const nextBtn = document.getElementById('sources-next');
+    let current = 0;
+
+    function showSlide(idx) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === idx);
+      });
+
+      // Invalidate the visible map size
+      if (window.sourceMaps[idx]) {
+        setTimeout(() => {
+          window.sourceMaps[idx].invalidateSize();
+        }, 200); // Delay to ensure it's visible
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+
+    showSlide(current); // Initial call
+  });
+</script>
+
+</body>
+</html>

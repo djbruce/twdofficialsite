@@ -2,49 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taft Water District</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  <title>Taft Water District</title>
   <link rel="stylesheet" href="style.css" />
   <script type="module" src="main.js"></script>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Add this in your <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-  <header>
+<header>
     <nav class="navbar" aria-label="Main Navigation">
-      <div class="navbar-left">
-        <img src="logo.png" alt="Taft Water District Logo" class="logo" />
-      </div>
-      <button class="navbar-toggle" aria-label="Open Menu" aria-expanded="false" aria-controls="navbar-menu">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="navbar-right" id="navbar-menu">
-        <a href="#pricing">Price</a>
-        <a href="#source">Source</a>
-        <a href="#rate">Rate</a>
-        <a href="#about">About Us</a>
-      </div>
-    </nav>
+  <a href="index.html"> 
+    <div class="navbar-left">
+      <img src="imgs/logo.png" alt="Taft Water District Logo" class="logo" />
+    </div>
+  </a>
+<h1 class="navbar-title">
+  TAFT WATER DISTRICT
+</h1>  <button class="navbar-toggle" aria-label="Open Menu" aria-expanded="false" aria-controls="navbar-menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="navbar-right" id="navbar-menu">
+    <a href="#installation">Price</a>
+    <a href="#source">Source</a>
+    <a href="#rate">Rate</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
   </header>
+
   <main>
     <!-- Hero Section -->
     <section class="hero" aria-label="Hero">
-      <div class="hero-grid">
-        <div class="hero-text">
-          <h1>Welcome to Official Website of TWD</h1>
-          <p>Local Government Owned and Controlled Corporation under Local Water Utilities Administration</p>
-          <a href="#pricing" class="cta-btn">View Pricing</a>
-        </div>
-        <div class="hero-3d">
-          <img src="imgs/123123.jpg" alt="Water Facility" class="hero-image" />
+      <div class="section-container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>Welcome to Official Website of TWD</h1>
+            <p>Local Government Owned and Controlled Corporation under Local Water Utilities Administration</p>
+            <a href="#footer" class="cta-btn">Explore</a>
+          </div>
+          <div class="hero-3d">
+            <img src="imgs/123123.jpg" alt="Water Facility" class="hero-image" />
+          </div>
         </div>
       </div>
     </section>
     <!-- Source Section -->
     <section class="info-map" id="source" aria-labelledby="source-heading">
       <div class="info-text">
-        <h2 id="source-heading">Our Water Source</h2>
+        <h2 id="source-heading">Sources</h2>
         <div class="source-slideshow">
           <div class="source-caption" id="source-caption">Water Source 1</div>
           <img src="imgs/water-source/pump1.jpg" alt="Water Source 1" class="source-slide active" />
@@ -55,32 +64,41 @@
             <button id="source-prev" aria-label="Previous Source">&#8592;</button>
             <button id="source-next" aria-label="Next Source">&#8594;</button>
           </div>
+        
         </div>
+          <a href="source.html" class="cta-btn">View All Water Sources</a>
         <p>Taft Water District sources water from the most reliable and sustainable resources, ensuring quality and safety for our community.</p>
       </div>
-      <div class="info-map-embed">
-        <h3 class="map-heading" style="margin-left:2px;">Location</h3>
-        <div id="osm-map" style="width:100%;height:300px;border-radius:8px;overflow:hidden;"></div>
-        <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            var map = L.map('osm-map').setView([11.8990086, 125.4190938], 15);
-            var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              maxZoom: 19,
-              attribution: '© OpenStreetMap contributors'
-            });
-            var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-              maxZoom: 19,
-              attribution: 'Tiles © Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-            });
-            var baseMaps = {
-              "Map": osm,
-              "Satellite": satellite
-            };
-            satellite.addTo(map);
-            L.control.layers(baseMaps).addTo(map);
-            L.marker([11.8990086, 125.4190938]).addTo(map);
-          });
-        </script>
+      
+      <div class="info-map-embed" style="height:300px;max-width:100%;">
+  <h2 class="map-heading">LOCATION</h2>
+  <div id="osm-map" style="width:100%;height:100%;overflow:hidden;"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var map = L.map('osm-map').setView([11.898348, 125.4186447], 15);
+
+    // Satellite as default layer
+    var satellite = L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 19,
+        attribution: 'Tiles © Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+      }
+    );
+    satellite.addTo(map); // Set as default and only layer
+
+    // Custom Font Awesome marker
+    var faIcon = L.divIcon({
+      html: '<i class="fa-solid fa-location-dot" style="color:#00e5ff;font-size:2rem;"></i>',
+      iconSize: [32, 32],
+      className: 'fa-marker'
+    });
+
+    L.marker([11.898348, 125.4186447], {icon: faIcon})
+      .addTo(map)
+      .openPopup();
+  });
+</script>
+
       </div>
     </section>
     <!-- Gallery Section -->
@@ -97,9 +115,22 @@
         <img src="imgs/gallery/img6.jpg" alt="Community Outreach Event" loading="lazy" tabindex="0" class="gallery-img" />
       </div>
     </section>
+     <!-- Installation Fee Section -->
+    <section class="installation-fee-section" id="installation">
+      <div class="installation-fee-content-center">
+        <h2 class="installation-fee-heading">Installation Fee</h2>
+        <div class="pricing-cards">
+          <div class="pricing-card">
+            <h3>Standard Installation</h3>
+            <div class="installation-fee-price">&#8369;2,500 <span class="misc-fee">+ additional miscellaneous fee</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Pricing Section -->
-    <section class="pricing" id="pricing" aria-labelledby="pricing-heading">
-      <h2 id="pricing-heading">Water Rates (Effective November 2022)</h2>
+    <section class="pricing" id="rate" aria-labelledby="pricing-heading">
+      <h2 id="pricing-heading">WATER RATES</h2>
       <div class="pricing-cards">
         <div class="pricing-card">
           <h3>Residential/Government</h3>
@@ -193,41 +224,72 @@
         </div>
       </div>
     </section>
-    <!-- Installation Fee Section -->
-    <section class="installation-fee-section">
-      <div class="installation-fee-content-center">
-        <h2 class="installation-fee-heading">Installation Fee</h2>
-        <div class="pricing-cards">
-          <div class="pricing-card">
-            <h3>Standard Installation</h3>
-            <div class="installation-fee-price">&#8369;2,500 <span class="misc-fee">+ additional miscellaneous fee</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Customer Reviews Section -->
-    <section class="slider" id="rate" aria-labelledby="reviews-heading">
-      <h2 id="reviews-heading">Customer Reviews</h2>
-      <div class="slider-container">
-        <div class="slide active">"Excellent service and water quality!" - Jane D.</div>
-        <div class="slide">"Reliable and affordable." - Mark T.</div>
-        <div class="slide">"Great support team." - Lisa W.</div>
-      </div>
-      <div class="slider-controls">
-        <button id="prev" aria-label="Previous Review">&#8592;</button>
-        <button id="next" aria-label="Next Review">&#8594;</button>
-      </div>
-      <div class="slider-indicators">
-        <span class="indicator active" data-slide="0"></span>
-        <span class="indicator" data-slide="1"></span>
-        <span class="indicator" data-slide="2"></span>
-      </div>
-    </section>
-    <!-- Team Section -->
-    <section class="team" id="about" aria-labelledby="team-heading">
-      <h2 id="team-heading">Employees</h2>
+   
+<!-- Our Services Section -->
+<section class="services-section" id="services" aria-labelledby="services-heading">
+  <div class="services-content-center">
+    <h2 id="services-heading">OUR SERVICES</h2>
+    <div class="services-container">
+      <ul class="services-list" id="servicesList">
+        <li>New connection</li>
+        <li>Change meter</li>
+        <li>Change account name</li>
+        <li>Disconnection</li>
+        <li>Disconnection- mainline</li>
+        <li>Disconnection- mainline and pull-out water meter</li>
+        <li>Temporary disconnection</li>
+        <li>Reconnection</li>
+        <li>Reconnection (temporary disconnected)</li>
+        <li>Reconnection- mainline</li>
+        <li>Reconnection- mainline and pulled out water meter</li>
+        <li>Reconnection- tail piece/ key wrench</li>
+        <li>For estimate</li>
+        <li>Investigation- reclassification (residential to commercial)</li>
+        <li>Investigation- reclassification (commercial to residential)</li>
+        <li>Investigation- illegal connection</li>
+        <li>Investigation- illegal tapping</li>
+        <li>Investigation- illegal use</li>
+        <li>Check the meter- high/low/zero consumption</li>
+        <li>Broken glass</li>
+        <li>Broken meter stand</li>
+        <li>Defective- water meter</li>
+        <li>Defective- ball valve w/ kw</li>
+        <li>Defective- ball valve w/ lw</li>
+        <li>Leakage- service line</li>
+        <li>Leakage- service line (road crossing)</li>
+        <li>Leakage- distribution line</li>
+        <li>Leakage- water meter assembly</li>
+        <li>Leakage- tapping point</li>
+        <li>Leakage- adaptor/ elbow</li>
+        <li>Leakage- meter stand</li>
+        <li>Leakage- mainline</li>
+        <li>Leakage- ball valve w/ KW</li>
+        <li>Leakage- ball valve w/ LW</li>
+        <li>Leakage- tail piece</li>
+        <li>Low pressure</li>
+        <li>Low pressure to no water</li>
+        <li>High pressure</li>
+        <li>No water</li>
+        <li>Dirty water</li>
+        <li>Closed KW</li>
+        <li>Relocation of water meter</li>
+        <li>Extension of water meter</li>
+        <li>Transfer of tapping point / Transfer of property</li>
+        <li>Restoration</li>
+        <li>Calibration of water meter</li>
+        <li>For standardization</li>
+        <li>Re-reading</li>
+      </ul>
+    </div>
+    <button id="seeMoreServices" class="cta-btn" style="display:none;margin-top: 1.5rem;">See More...</button>
+  </div>
+</section>
+
+     <!-- Team Section -->
+    <section class="team" aria-labelledby="team-heading">
+      <h2 id="team-heading">EMPLOYEES</h2>
       <div class="team-slider-wrapper">
-        <button class="team-slider-btn team-prev" aria-label="Previous Team Members">&#8592;</button>
+        <button class="team-slider-btn team-prev" id="team-prev" aria-label="Previous Team Members">&#8592;</button>
         <div class="team-slider">
           <div class="team-slide active">
             <div class="team-members">
@@ -243,7 +305,7 @@
               </div>
               <div class="member">
                 <img src="imgs/team/salvyn.jpg" alt="Michael Lee, Customer Service Lead" />
-                <h3>Salvacion Ayad D</h3>
+                <h3>Salvacion Ayad</h3>
                 <p>Cashier</p>
               </div>
               <div class="member">
@@ -311,17 +373,17 @@
               <div class="member">
                 <img src="imgs/team/roberta.jpg" alt="Member 14" />
                 <h3>Roberta Docena</h3>
-                <p>Board of Directory</p>
+                <p>Board of Director</p>
               </div>
               <div class="member">
                 <img src="imgs/team/adora.jpg" alt="Member 15" />
                 <h3>Adora Aquiatan</h3>
-                <p>Board of Directory</p>
+                <p>Board of Director</p>
               </div>
               <div class="member">
                 <img src="imgs/team/ramon.jpg" alt="Member 16" />
                 <h3>Ramon Cosipag Jr</h3>
-                <p>Board of Directory</p>
+                <p>Board of Director</p>
               </div>
             </div>
           </div>
@@ -330,31 +392,81 @@
               <div class="member">
                 <img src="imgs/team/rosita.jpg" alt="Member 17" />
                 <h3>Rosita Catubao</h3>
-                <p>Board of Directory</p>
+                <p>Board of Director</p>
               </div>
               <div class="member">
                 <img src="imgs/team/marowena.jpg" alt="Member 18" />
                 <h3>Ma. Rowena Obiena</h3>
-                <p>Board of Directory</p>
+                <p>Board of Director</p>
               </div>
             </div>
           </div>
         </div>
-        <button class="team-slider-btn team-next" aria-label="Next Team Members">&#8594;</button>
+        <button class="team-slider-btn team-next" id="team-next" aria-label="Next Team Members">&#8594;</button>
       </div>
-      <div class="team-indicators"></div>
+      <div class="slider-indicators team-indicators">
+        <span class="indicator active" data-slide="0"></span>
+        <span class="indicator" data-slide="1"></span>
+        <span class="indicator" data-slide="2"></span>
+        <span class="indicator" data-slide="3"></span>
+        <span class="indicator" data-slide="4"></span>
+      </div>
     </section>
-  </main>
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 Taft Water District. All rights reserved.</p>
-      <form class="contact-form" aria-label="Contact Form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+
+
+<!-- Mission and Vision Section -->
+<section class="mission-vision" id="about" aria-labelledby="mv-heading">
+  <h2 id="mv-heading">ABOUT US</h2>
+  <div class="mv-wrapper">
+    <div class="mv-box">
+      <h3>Mission</h3>
+      <p>
+        To provide potable water to the municipality of Taft as a partner in promoting economic growth, environmental stewardship, and protection of health and well-being of its residents.
+      </p>
     </div>
-  </footer>
+    <div class="mv-box">
+      <h3>Vision</h3>
+      <p>
+        That the Taft Water District, with sufficient potable water, be the most reliable and economically viable service provider in meeting the needs of a fully developed Taft municipality while ensuring the preservation of our natural resources.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+<footer>
+  <div class="footer-content" id="footer">
+    <p>&copy; 2025 Taft Water District. All rights reserved.</p>
+    <div class="footer-social">
+      <!-- Phone -->
+      <div class="footer-contact">
+        <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/telephone-fill.svg" alt="Phone" />
+        <a href="tel:09665281778">0966 528 1778</a>
+      </div>
+      <!-- Location -->
+      <div class="footer-contact">
+        <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/geo-alt-fill.svg" alt="Location" />
+        <a href="https://www.google.com/maps/place/Taft+Water+District/@11.9003827,125.4168427,902m/data=!3m1!1e3!4m6!3m5!1s0x330910420fe2d7d3:0x101564c113329041!8m2!3d11.898348!4d125.4186447!16s%2Fg%2F11dyx7pfnf?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+          Real Street, Brgy. 03, National Road, Taft, Eastern Samar
+        </a>
+      </div>
+      <!-- Facebook -->
+      <div class="footer-contact">
+        <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/facebook.svg" alt="Facebook" />
+        <a href="https://www.facebook.com/people/Taft-Water-District/100063633116692/" target="_blank" rel="noopener">
+          Facebook.com/people/Taft-Water-District/100063633116692/
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Add just before </body> -->
+<button id="scrollToTopBtn" aria-label="Scroll to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+</body>
+</html>
 </body>
 </html>
