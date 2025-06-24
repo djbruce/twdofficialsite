@@ -70,34 +70,35 @@
         <p>Taft Water District sources water from the most reliable and sustainable resources, ensuring quality and safety for our community.</p>
       </div>
       
-      <div class="info-map-embed" style="height:300px;max-width:100%;">
+<!-- Map Container -->
+<div class="info-map-embed" style="height: 300px; max-width: 100%;">
   <h2 class="map-heading">LOCATION</h2>
-  <div id="osm-map" style="width:100%;height:100%;overflow:hidden;"></div>
+  <div id="osm-map" style="width: 100%; height: 100%; overflow: hidden;"></div>
+</div>
+
+<!-- Leaflet Map Script -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var map = L.map('osm-map').setView([11.898348, 125.4186447], 15);
+  document.addEventListener('DOMContentLoaded', function () {
+    const map = L.map('osm-map').setView([11.898348, 125.4186447], 15);
 
-    // Satellite as default layer
-    var satellite = L.tileLayer(
-      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 19,
-        attribution: 'Tiles © Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-      }
-    );
-    satellite.addTo(map); // Set as default and only layer
+    // Add satellite layer
+    const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19,
+      attributionControl: false // Optional: Hide attribution
+    });
+    satellite.addTo(map);
 
-    // Custom Font Awesome marker
-    var faIcon = L.divIcon({
-      html: '<i class="fa-solid fa-location-dot" style="color:#00e5ff;font-size:2rem;"></i>',
-      iconSize: [32, 32],
-      className: 'fa-marker'
+    // Custom Font Awesome marker (no white square)
+    const faIcon = L.divIcon({
+      html: '<i class="fa-solid fa-location-dot" style="color:#00e5ff; font-size: 2rem;"></i>',
+      iconSize: null,
+      className: '' // Avoid white square by removing class
     });
 
-    L.marker([11.898348, 125.4186447], {icon: faIcon})
-      .addTo(map)
-      .openPopup();
+    L.marker([11.898348, 125.4186447], { icon: faIcon }).addTo(map).openPopup();
   });
 </script>
+
 
       </div>
     </section>
