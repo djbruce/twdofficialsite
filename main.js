@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Disable Inspect (basic)
 // ==========================
 document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function(e) {     
   // F12
   if (e.key === 'F12' || e.keyCode === 123) {
     e.preventDefault();
